@@ -8,6 +8,7 @@ $(document).ready(function () {
     // and populate/remove the input elements accordingly.
     $('.battery').on('click touch', function(event) {
         let battery = this.id.split('-')[1];
+        battery = parseInt(battery);
         batteries.toggleSelection(battery);
         if (batteries.isSelected(battery)) {
             tryInputBatteries.filter(function() {
@@ -25,4 +26,20 @@ $(document).ready(function () {
             }).text(emptyNumber);
         }
     });
+
+    $('#try-batteries').on('click touch', function(event) {
+        if (batteries.checkOneSelectedIsCharged()) {
+            alert('Flashlight is ON');
+        } else {
+            alert('Flashlight is OFF');
+        }
+    });
+
+    $('#submit-batteries').on('click touch', function(event) {
+        if (batteries.checkSelectedAreCharged()) {
+            alert('You found them :) !');
+        } else {
+            alert('You did not find them');
+        }
+    })
 });
