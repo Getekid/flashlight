@@ -17,4 +17,18 @@ describe("Batteries", function() {
     // Ensure they are different values.
     expect(charged[0]).not.toEqual(charged[1])
   });
+
+  it("should be able to validate whether a battery is charged or not", function () {
+    let charged = batteries.getCharged();
+    let notCharged;
+    for (let i = 1; i <= 10; i++) {
+      if (i !== charged[0] && i !== charged[1]) {
+        notCharged = i;
+        break;
+      }
+    }
+    expect(batteries.isCharged(charged[0])).toBeTrue();
+    expect(batteries.isCharged(charged[1])).toBeTrue();
+    expect(batteries.isCharged(notCharged)).toBeFalse();
+  });
 });

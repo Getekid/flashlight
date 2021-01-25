@@ -10,6 +10,10 @@ class Batteries {
     getCharged() {
         return this.charged;
     }
+
+    isCharged(battery) {
+        return this.charged.includes(battery);
+    }
 }
 
 
