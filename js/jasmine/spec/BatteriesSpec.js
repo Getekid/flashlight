@@ -68,4 +68,11 @@ describe("Batteries", function() {
       expect(batteries.isSelected(4)).toBeFalse();
     });
   });
+
+  it('should be able to check if the selected batteries are charged on not', function() {
+    expect(batteries.checkSelectedAreCharged()).toBeFalse();
+    batteries.setSelected(batteries.getCharged()[1]);
+    batteries.setSelected(batteries.getCharged()[0]);
+    expect(batteries.checkSelectedAreCharged()).toBeTrue();
+  });
 });

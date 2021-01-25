@@ -43,6 +43,11 @@ class Batteries {
             this.setSelected(battery);
         }
     }
+
+    checkSelectedAreCharged() {
+        return this.selected.includes(this.charged[0])
+            && this.selected.includes(this.charged[1]);
+    }
 }
 
 
