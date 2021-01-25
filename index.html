@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/battery.js"></script>
+    <title>Flashlight</title>
+    <style>
+      header {
+        text-align: center;
+      }
+      p, li {
+        font-size: 3em;
+      }
+      h1 {
+        font-size: 4em;
+      }
+      h2 {
+        font-size: 7ex;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Flashlight</h1>
+      <p>Find the charged batteries</p>
+    </header>
+    <main>
+      <aside>
+        <h2>Instructions</h2>
+        <p>The flashlight will work if at least one of the batteries is charged.</p>
+        <p>To select a battery:</p>
+        <ul>
+          <li>Tap on it on your phone</li>
+          <li>Left mouse click</li>
+          <li>Select using the Left/Right arrow keys and confirm with Enter</li>
+        </ul>
+        <p>You can use the last two batteries selected.
+          Remove them if you want to try another pair.</p>
+      </aside>
+      <section class="game">
+        <div class="flashlight"></div>
+        <div><p>Try batteries <span class="battery1">#</span> and <span class="battery2">#</span></p></div>
+        <div><p>Remove batteries</p></div>
+        <div class="batteries">
+          <div id="battery-1"></div>
+          <div id="battery-2"></div>
+          <div id="battery-3"></div>
+          <div id="battery-4"></div>
+          <div id="battery-5"></div>
+          <div id="battery-6"></div>
+          <div id="battery-7"></div>
+          <div id="battery-8"></div>
+          <div id="battery-9"></div>
+          <div id="battery-10"></div>
+        </div>
+      </section>
+      <section>
+        <div><p>FOUND THEM! It's <span class="battery1">#</span> and <span class="battery2">#</span></p></div>
+      </section>
+    </main>
+  </body>
+</html>
