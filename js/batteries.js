@@ -35,6 +35,14 @@ class Batteries {
     isSelected(battery) {
         return this.selected.includes(battery);
     }
+
+    toggleSelection(battery) {
+        if (this.isSelected(battery)) {
+            this.setUnselected(battery);
+        } else {
+            this.setSelected(battery);
+        }
+    }
 }
 
 

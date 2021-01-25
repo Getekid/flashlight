@@ -32,8 +32,8 @@ describe("Batteries", function() {
     expect(batteries.isCharged(notCharged)).toBeFalse();
   });
 
-  describe('should be able to be selected', function() {
-    it('up to 2', function() {
+  describe('should be able to be selected by', function() {
+    it('selecting up to 2', function() {
       expect(batteries.isSelected(3)).toBeFalse();
       batteries.setSelected(3);
       expect(batteries.isSelected(3)).toBeTrue();
@@ -42,7 +42,7 @@ describe("Batteries", function() {
       expect(batteries.isSelected(8)).toBeTrue();
     })
 
-    it('not more than 2', function() {
+    it('not selecting more than 2', function() {
       batteries.setSelected(2);
       batteries.setSelected(3);
       batteries.setSelected(5);
@@ -51,7 +51,7 @@ describe("Batteries", function() {
       expect(batteries.isSelected(5)).toBeFalse();
     });
 
-    it('and deselected', function () {
+    it('being able to deselect', function () {
       batteries.setSelected(3);
       batteries.setSelected(5);
       expect(batteries.isSelected(3)).toBeTrue();
@@ -59,6 +59,13 @@ describe("Batteries", function() {
       batteries.setUnselected(3);
       expect(batteries.isSelected(3)).toBeFalse();
       expect(batteries.isSelected(5)).toBeTrue();
+    });
+
+    it('being able to toggle selected/unselected', function() {
+      batteries.toggleSelection(4);
+      expect(batteries.isSelected(4)).toBeTrue();
+      batteries.toggleSelection(4);
+      expect(batteries.isSelected(4)).toBeFalse();
     });
   });
 });
