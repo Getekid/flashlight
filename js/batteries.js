@@ -19,9 +19,8 @@ class Batteries {
 
 // Helper function to get a random number between 1 and 10.
 function getRandomNumber() {
-    let n = 0;
-    while (n === 0) {
+    do {
         n = Math.round((Math.random() * 10));
-    }
+    } while (n === 0);
     return n;
 }
