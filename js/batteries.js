@@ -32,6 +32,10 @@ class Batteries {
         }
     }
 
+    getSelected() {
+        return this.selected;
+    }
+
     isSelected(battery) {
         return this.selected.includes(battery);
     }

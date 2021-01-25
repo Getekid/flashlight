@@ -34,12 +34,15 @@ describe("Batteries", function() {
 
   describe('should be able to be selected by', function() {
     it('selecting up to 2', function() {
+      expect(batteries.getSelected()).toEqual([]);
       expect(batteries.isSelected(3)).toBeFalse();
       batteries.setSelected(3);
       expect(batteries.isSelected(3)).toBeTrue();
+      expect(batteries.getSelected()).toEqual([3]);
       expect(batteries.isSelected(8)).toBeFalse();
       batteries.setSelected(8);
       expect(batteries.isSelected(8)).toBeTrue();
+      expect(batteries.getSelected()).toEqual([3, 8]);
     })
 
     it('not selecting more than 2', function() {
