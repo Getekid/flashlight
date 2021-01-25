@@ -42,4 +42,16 @@ $(document).ready(function () {
             alert('You did not find them');
         }
     })
+
+    $('#remove-batteries').on('click touch', function(event) {
+        selectedBatteries = batteries.getSelected();
+        batteries.setUnselected(selectedBatteries[0]);
+        batteries.setUnselected(selectedBatteries[1]);
+        tryInputBatteries.each(function(index) {
+            $(this).text(emptyNumber);
+        })
+        submitInputBatteries.each(function(index) {
+            $(this).text(emptyNumber);
+        })
+    })
 });
