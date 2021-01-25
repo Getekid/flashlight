@@ -44,6 +44,11 @@ class Batteries {
         }
     }
 
+    checkOneSelectedIsCharged() {
+        return this.selected.includes(this.charged[0])
+            || this.selected.includes(this.charged[1]);
+    }
+
     checkSelectedAreCharged() {
         return this.selected.includes(this.charged[0])
             && this.selected.includes(this.charged[1]);
