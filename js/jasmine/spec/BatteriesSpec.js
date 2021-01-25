@@ -31,4 +31,34 @@ describe("Batteries", function() {
     expect(batteries.isCharged(charged[1])).toBeTrue();
     expect(batteries.isCharged(notCharged)).toBeFalse();
   });
+
+  describe('should be able to be selected', function() {
+    it('up to 2', function() {
+      expect(batteries.isSelected(3)).toBeFalse();
+      batteries.setSelected(3);
+      expect(batteries.isSelected(3)).toBeTrue();
+      expect(batteries.isSelected(8)).toBeFalse();
+      batteries.setSelected(8);
+      expect(batteries.isSelected(8)).toBeTrue();
+    })
+
+    it('not more than 2', function() {
+      batteries.setSelected(2);
+      batteries.setSelected(3);
+      batteries.setSelected(5);
+      expect(batteries.isSelected(2)).toBeTrue();
+      expect(batteries.isSelected(3)).toBeTrue();
+      expect(batteries.isSelected(5)).toBeFalse();
+    });
+
+    it('and deselected', function () {
+      batteries.setSelected(3);
+      batteries.setSelected(5);
+      expect(batteries.isSelected(3)).toBeTrue();
+      expect(batteries.isSelected(5)).toBeTrue();
+      batteries.setUnselected(3);
+      expect(batteries.isSelected(3)).toBeFalse();
+      expect(batteries.isSelected(5)).toBeTrue();
+    });
+  });
 });
