@@ -46,12 +46,12 @@ $(document).ready(function () {
     $('#remove-batteries').on('click touch', function(event) {
         selectedBatteries = batteries.getSelected();
         batteries.setUnselected(selectedBatteries[0]);
-        batteries.setUnselected(selectedBatteries[1]);
+        batteries.setUnselected(selectedBatteries[0]);
         tryInputBatteries.each(function(index) {
             $(this).text(emptyNumber);
-        })
+        });
         submitInputBatteries.each(function(index) {
             $(this).text(emptyNumber);
-        })
+        });
     })
 });

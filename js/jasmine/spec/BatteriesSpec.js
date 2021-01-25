@@ -55,13 +55,22 @@ describe("Batteries", function() {
     });
 
     it('being able to deselect', function () {
+      let selected = batteries.getSelected();
+
       batteries.setSelected(3);
       batteries.setSelected(5);
       expect(batteries.isSelected(3)).toBeTrue();
       expect(batteries.isSelected(5)).toBeTrue();
+      expect(selected).toEqual([3, 5]);
+
       batteries.setUnselected(3);
       expect(batteries.isSelected(3)).toBeFalse();
       expect(batteries.isSelected(5)).toBeTrue();
+      expect(selected).toEqual([5]);
+
+      batteries.setUnselected(5);
+      expect(batteries.isSelected(5)).toBeFalse();
+      expect(selected).toEqual([]);
     });
 
     it('being able to toggle selected/unselected', function() {
