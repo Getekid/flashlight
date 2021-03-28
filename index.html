@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/batteries.js"></script>
     <script src="js/game.js"></script>
@@ -29,44 +30,68 @@
       </aside>
       <section class="game">
         <div class="flashlight"></div>
-        <div id="try-batteries"><p>Try batteries <span class="battery-input-try">#</span> and <span class="battery-input-try">#</span></p></div>
-        <div id="remove-batteries"><p>Remove batteries</p></div>
+        <button id="try-batteries">
+          <p>Try batteries <span class="battery-input-try">#</span> and <span class="battery-input-try">#</span></p>
+        </button>
+        <button id="remove-batteries">
+          <p>Remove batteries</p>
+        </button>
         <!-- TODO: Use a template engine for the battery markup. -->
-        <div class="batteries">
-          <div class="battery" id="battery-1">
-            <img src="media/battery.svg">
-          </div>
-          <div class="battery" id="battery-2">
-            <img src="media/battery.svg">
-          </div>
-          <div class="battery" id="battery-3">
-            <img src="media/battery.svg">
-          </div>
-          <div class="battery" id="battery-4">
-            <img src="media/battery.svg">
-          </div>
-          <div class="battery" id="battery-5">
-            <img src="media/battery.svg">
-          </div>
-          <div class="battery" id="battery-6">
-            <img src="media/battery.svg">
-          </div>
-          <div class="battery" id="battery-7">
-            <img src="media/battery.svg">
-          </div>
-          <div class="battery" id="battery-8">
-            <img src="media/battery.svg">
-          </div>
-          <div class="battery" id="battery-9">
-            <img src="media/battery.svg">
-          </div>
-          <div class="battery" id="battery-10">
-            <img src="media/battery.svg">
-          </div>
-        </div>
-      </section>
-      <section>
-        <div id="submit-batteries"><p>FOUND THEM! It's <span class="battery-input-submit">#</span> and <span class="battery-input-submit">#</span></p></div>
+        <ol class="batteries">
+          <li>
+            <button class="battery" id="battery-1">
+              <img src="media/battery.svg">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-2">
+              <img src="media/battery.svg">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-3">
+              <img src="media/battery.svg">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-4">
+              <img src="media/battery.svg">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-5">
+              <img src="media/battery.svg">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-6">
+              <img src="media/battery.svg">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-7">
+              <img src="media/battery.svg">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-8">
+              <img src="media/battery.svg">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-9">
+              <img src="media/battery.svg">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-10">
+              <img src="media/battery.svg">
+            </button>
+          </li>
+        </ol>
+        <button id="submit-batteries">
+          <p>FOUND THEM! It's <span class="battery-input-submit">#</span> and <span class="battery-input-submit">#</span></p>
+        </button>
       </section>
     </main>
   </body>

@@ -1,5 +1,35 @@
+.game {
+    text-align: center;
+}
+
+ol.batteries {
+    margin: 0;
+    padding: 0;
+    list-style: none; /* hide original list numbering */
+    counter-reset: ordered-list; /* initialize CSS counter */
+}
+
+ol.batteries li::before {
+    display: block; /* display numbering as block to force content down */
+    margin-bottom: 4px;
+    counter-increment: ordered-list; /* increment CSS counter for every <li> in the list */
+    content: counter(ordered-list); /* output counter value and append a "." */
+    text-align: center;
+}
+
+ol.batteries li {
+    display: inline-block;
+    width: 22%;
+    padding: 0.5ex;
+}
+
+@media only screen and (min-width: 768px) {
+    ol.batteries li {
+        width: 16%;
+    }
+}
+
 .battery {
-    width: 9%;
-    float: left;
-    padding: 1ex;
+    width: 100%;
+    padding: 0;
 }
