@@ -1,11 +1,15 @@
 $(document).ready(function () {
     let batteries = new Batteries();
+    const batteryButtons = $('.battery');
     const tryBatteriesButton = $('#try-batteries');
     const tryBatteriesDefaultText = tryBatteriesButton.text().trim();
     const submitBatteriesButton = $('#submit-batteries');
     const submitBatteriesDefaultText = submitBatteriesButton.text().trim();
 
     function updateBatteryButtons(disabled, tryText, submitText) {
+        batteryButtons.removeClass('selected');
+        batteries.getSelected().forEach(battery => batteryButtons.filter('#battery-' + battery).addClass('selected'));
+        // Also update the "Try" and "Submit buttons".
         tryBatteriesButton.prop('disabled', disabled);
         tryBatteriesButton.children('p').text(tryText);
         submitBatteriesButton.prop('disabled', disabled);
@@ -14,7 +18,7 @@ $(document).ready(function () {
 
     // When selecting a battery then toggle selection
     // and update the "try" button accordingly.
-    $('.battery').on('click touch', function(event) {
+    batteryButtons.on('click touch', function(event) {
         let battery = this.id.split('-')[1];
         battery = parseInt(battery);
         batteries.toggleSelection(battery);
