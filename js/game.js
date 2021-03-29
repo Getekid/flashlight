@@ -1,33 +1,37 @@
 $(document).ready(function () {
     let batteries = new Batteries();
-    const tryInputBatteries = $('.battery-input-try');
-    const submitInputBatteries = $('.battery-input-submit');
-    const emptyNumber = '#';
+    const tryBatteriesButton = $('#try-batteries');
+    const tryBatteriesDefaultText = tryBatteriesButton.text().trim();
+    const submitBatteriesButton = $('#submit-batteries');
+    const submitBatteriesDefaultText = submitBatteriesButton.text().trim();
+
+    function updateBatteryButtons(disabled, tryText, submitText) {
+        tryBatteriesButton.prop('disabled', disabled);
+        tryBatteriesButton.children('p').text(tryText);
+        submitBatteriesButton.prop('disabled', disabled);
+        submitBatteriesButton.children('p').text(submitText);
+    }
 
     // When selecting a battery then toggle selection
-    // and populate/remove the input elements accordingly.
+    // and update the "try" button accordingly.
     $('.battery').on('click touch', function(event) {
         let battery = this.id.split('-')[1];
         battery = parseInt(battery);
         batteries.toggleSelection(battery);
-        if (batteries.isSelected(battery)) {
-            tryInputBatteries.filter(function() {
-                return $(this).text() === emptyNumber;
-            }).first().text(battery);
-            submitInputBatteries.filter(function() {
-                return $(this).text() === emptyNumber;
-            }).first().text(battery);
-        } else {
-            tryInputBatteries.filter(function() {
-                return $(this).text() == battery;
-            }).text(emptyNumber);
-            submitInputBatteries.filter(function() {
-                return $(this).text() == battery;
-            }).text(emptyNumber);
+        switch (batteries.getSelected().length) {
+            case 0:
+                updateBatteryButtons(true, tryBatteriesDefaultText, submitBatteriesDefaultText);
+                break;
+            case 1:
+                updateBatteryButtons(true, tryBatteriesDefaultText, submitBatteriesDefaultText + ' ' + batteries.getSelected()[0]);
+                break;
+            case 2:
+                updateBatteryButtons(false, 'Try batteries ' + batteries.getSelected().join(','), submitBatteriesDefaultText + ' ' + batteries.getSelected().join(','));
+                break;
         }
     });
 
-    $('#try-batteries').on('click touch', function(event) {
+    tryBatteriesButton.on('click touch', function(event) {
         if (batteries.checkOneSelectedIsCharged()) {
             alert('Flashlight is ON');
         } else {
@@ -35,23 +39,18 @@ $(document).ready(function () {
         }
     });
 
-    $('#submit-batteries').on('click touch', function(event) {
+    submitBatteriesButton.on('click touch', function(event) {
         if (batteries.checkSelectedAreCharged()) {
             alert('You found them :) !');
         } else {
             alert('You did not find them');
         }
-    })
+    });
 
     $('#remove-batteries').on('click touch', function(event) {
-        selectedBatteries = batteries.getSelected();
-        batteries.setUnselected(selectedBatteries[0]);
-        batteries.setUnselected(selectedBatteries[0]);
-        tryInputBatteries.each(function(index) {
-            $(this).text(emptyNumber);
-        });
-        submitInputBatteries.each(function(index) {
-            $(this).text(emptyNumber);
-        });
-    })
+        if (batteries.hasSelected()) {
+            batteries.removeSelected();
+        }
+        updateBatteryButtons(true, tryBatteriesDefaultText, submitBatteriesDefaultText);
+    });
 });
