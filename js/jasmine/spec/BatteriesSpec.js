@@ -33,7 +33,7 @@ describe("Batteries", function() {
   });
 
   describe('should be able to be selected by', function() {
-    it('selecting up to 2', function() {
+    it('selecting 2', function() {
       expect(batteries.getSelected()).toEqual([]);
       expect(batteries.isSelected(3)).toBeFalse();
       batteries.setSelected(3);
@@ -41,17 +41,16 @@ describe("Batteries", function() {
       expect(batteries.getSelected()).toEqual([3]);
       expect(batteries.isSelected(8)).toBeFalse();
       batteries.setSelected(8);
+      batteries.setSelected(8); // Ensure that selecting the same battery won't add another entry.
       expect(batteries.isSelected(8)).toBeTrue();
       expect(batteries.getSelected()).toEqual([3, 8]);
-    })
+    });
 
-    it('not selecting more than 2', function() {
+    it('and reset the selection when selecting a 3rd', function() {
       batteries.setSelected(2);
       batteries.setSelected(3);
       batteries.setSelected(5);
-      expect(batteries.isSelected(2)).toBeTrue();
-      expect(batteries.isSelected(3)).toBeTrue();
-      expect(batteries.isSelected(5)).toBeFalse();
+      expect(batteries.getSelected()).toEqual([5]);
     });
 
     it('being able to deselect', function () {
@@ -79,6 +78,16 @@ describe("Batteries", function() {
       batteries.toggleSelection(4);
       expect(batteries.isSelected(4)).toBeFalse();
     });
+  });
+
+  it('should be able to check if any batteries have been selected or not', function() {
+    expect(batteries.hasSelected()).toBeFalse();
+    expect(batteries.hasNoSelected()).toBeTrue();
+    batteries.setSelected(2);
+    expect(batteries.hasSelected()).toBeTrue();
+    expect(batteries.hasNoSelected()).toBeFalse();
+    batteries.removeSelected(); // Test the emptySelected function as well.
+    expect(batteries.hasNoSelected()).toBeTrue();
   });
 
   it('should be able to check if the selected batteries are charged on not', function() {

@@ -19,8 +19,11 @@ class Batteries {
     }
 
     setSelected(battery) {
-        if (this.selected.length === 2) {
+        if (this.selected.includes(battery)) {
             return;
+        }
+        if (this.selected.length === 2) {
+            this.selected = [];
         }
         this.selected.push(battery);
     }
@@ -46,6 +49,18 @@ class Batteries {
         } else {
             this.setSelected(battery);
         }
+    }
+
+    hasSelected() {
+        return this.selected.length !== 0;
+    }
+
+    hasNoSelected() {
+        return this.selected.length === 0;
+    }
+
+    removeSelected() {
+        this.selected = [];
     }
 
     checkOneSelectedIsCharged() {
