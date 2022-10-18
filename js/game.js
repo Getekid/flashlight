@@ -6,6 +6,8 @@ $(document).ready(function () {
     const submitBatteriesButton = $('#submit-batteries');
     const submitBatteriesDefaultText = submitBatteriesButton.text().trim();
 
+    const flashlightStatus = $('.flashlight-status');
+
     function updateBatteryButtons(disabled, tryText, submitText) {
         batteryButtons.removeClass('selected');
         batteries.getSelected().forEach(battery => batteryButtons.filter('#battery-' + battery).addClass('selected'));
@@ -14,6 +16,16 @@ $(document).ready(function () {
         tryBatteriesButton.children('p').text(tryText);
         submitBatteriesButton.prop('disabled', disabled);
         submitBatteriesButton.children('p').text(submitText);
+    }
+
+    function turnFlashlightOn() {
+        flashlightStatus.addClass('on');
+        flashlightStatus.attr('aria-label', 'Flashlight is on');
+    }
+
+    function turnFlashlightOff() {
+        flashlightStatus.removeClass('on');
+        flashlightStatus.attr('aria-label', 'Flashlight is off');
     }
 
     // When selecting a battery then toggle selection
@@ -28,6 +40,7 @@ $(document).ready(function () {
                 break;
             case 1:
                 updateBatteryButtons(true, tryBatteriesDefaultText, submitBatteriesDefaultText + ' ' + batteries.getSelected()[0]);
+                turnFlashlightOff();
                 break;
             case 2:
                 updateBatteryButtons(false, 'Try batteries ' + batteries.getSelected().join(','), submitBatteriesDefaultText + ' ' + batteries.getSelected().join(','));
@@ -37,9 +50,9 @@ $(document).ready(function () {
 
     tryBatteriesButton.on('click touch', function(event) {
         if (batteries.checkOneSelectedIsCharged()) {
-            alert('Flashlight is ON');
+            turnFlashlightOn();
         } else {
-            alert('Flashlight is OFF');
+            turnFlashlightOff();
         }
     });
 
@@ -55,6 +68,7 @@ $(document).ready(function () {
         if (batteries.hasSelected()) {
             batteries.removeSelected();
         }
+        turnFlashlightOff();
         updateBatteryButtons(true, tryBatteriesDefaultText, submitBatteriesDefaultText);
     });
 });

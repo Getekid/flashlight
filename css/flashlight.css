@@ -1,0 +1,72 @@
+/* GLOBAL */
+
+body {
+    color: white;
+    background-color: black;
+}
+
+.game {
+    text-align: center;
+}
+
+/* FLASHLIGHT */
+
+.flashlight-icon, .flashlight-status {
+    display: inline-block;
+	width: 48%;
+}
+
+.flashlight-icon {
+    vertical-align: middle;
+}
+
+.flashlight-icon img {
+    width: 50%;
+    rotate: 45deg;
+}
+
+.flashlight-status {
+	color: white;
+	margin: auto;
+	font-weight: bold;
+}
+
+.flashlight-status p {
+    font-size: 2.5em;
+    padding: 25px 5px;
+    border-radius: 50px;
+}
+
+.flashlight-status p::before {
+    content: '';
+    display: inline-block;
+    width: 0.8ex;
+    height: 0.8ex;
+    -moz-border-radius: 0.4ex;
+    -webkit-border-radius: 0.4ex;
+    border-radius: 0.4ex;
+    background-color: #b72402;
+    margin: 0 6px 6px 0;
+ }
+
+ .flashlight-status p.flashlight-status-on {
+    display: none;
+ }
+
+ .flashlight-status.on p {
+    color: black;
+    background-color: white;
+    box-shadow: 0 0 10px white;
+ }
+
+ .flashlight-status.on p::before {
+    background-color: green;
+ }
+
+ .flashlight-status.on .flashlight-status-on {
+    display: inherit;
+ }
+
+ .flashlight-status.on .flashlight-status-off {
+    display: none;
+ }

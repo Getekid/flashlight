@@ -7,17 +7,26 @@
     <script src="js/batteries.js"></script>
     <script src="js/game.js"></script>
     <title>Flashlight</title>
+    <link rel="stylesheet" href="css/flashlight.css">
     <link rel="stylesheet" href="css/battery.css">
     <link rel="stylesheet" href="css/text.css">
   </head>
   <body>
     <header>
-      <h1>Flashlight</h1>
-      <p>Find the charged batteries</p>
+      <h1 class="glow">Flashlight</h1>
+      <!-- <p class="glow">Find the charged batteries</p> -->
     </header>
     <main>
       <section class="game">
-        <div class="flashlight"></div>
+        <div class="flashlight">
+          <div class="flashlight-icon">
+            <img src="media/flashlight.svg" alt="Flashlight icon">
+          </div>
+          <div class="flashlight-status" aria-label="Flaslight is OFF">
+            <p class="flashlight-status-off">OFF</p>
+            <p class="flashlight-status-on">ON</p>
+          </div>
+        </div>
         <button id="try-batteries" disabled>
           <p>Select two batteries</p>
         </button>
