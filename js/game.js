@@ -49,11 +49,14 @@ $(document).ready(function () {
     });
 
     tryBatteriesButton.on('click touch', function(event) {
-        if (batteries.checkOneSelectedIsCharged()) {
-            turnFlashlightOn();
-        } else {
-            turnFlashlightOff();
-        }
+        flashlightStatus.fadeOut(100, () => {
+            if (batteries.checkOneSelectedIsCharged()) {
+                turnFlashlightOn();
+            } else {
+                turnFlashlightOff();
+            }
+        });
+        flashlightStatus.fadeIn(100);
     });
 
     submitBatteriesButton.on('click touch', function(event) {
@@ -70,7 +73,8 @@ $(document).ready(function () {
         if (batteries.hasSelected()) {
             batteries.removeSelected();
         }
-        turnFlashlightOff();
+        flashlightStatus.fadeOut(100, () => turnFlashlightOff());
+        flashlightStatus.fadeIn(100);
         updateBatteryButtons(true, tryBatteriesDefaultText, submitBatteriesDefaultText);
     });
 });
