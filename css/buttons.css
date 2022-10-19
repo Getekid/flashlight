@@ -16,3 +16,15 @@ button.flashlight-button:disabled {
 button.flashlight-button img {
     width: 75px;
 }
+
+#submit-batteries {
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 0 20px;
+}
+
+#submit-batteries:disabled {
+    color: gray;
+    border-color: gray;
+}

@@ -39,11 +39,11 @@ $(document).ready(function () {
                 updateBatteryButtons(true, tryBatteriesDefaultText, submitBatteriesDefaultText);
                 break;
             case 1:
-                updateBatteryButtons(true, 'Try ' + batteries.getSelected()[0] + ' , _', submitBatteriesDefaultText + ' ' + batteries.getSelected()[0]);
+                updateBatteryButtons(true, 'Try ' + batteries.getSelected()[0] + ', _', submitBatteriesDefaultText + ': ' + batteries.getSelected()[0]);
                 turnFlashlightOff();
                 break;
             case 2:
-                updateBatteryButtons(false, 'Try ' + batteries.getSelected().join(' , '), submitBatteriesDefaultText + ' ' + batteries.getSelected().join(','));
+                updateBatteryButtons(false, 'Try ' + batteries.getSelected().join(', '), submitBatteriesDefaultText + ': ' + batteries.getSelected().join(', '));
                 break;
         }
     });
@@ -57,11 +57,13 @@ $(document).ready(function () {
     });
 
     submitBatteriesButton.on('click touch', function(event) {
+        let correctAnswerText = 'Correct answer: ' + batteries.getCharged().join(', ');
         if (batteries.checkSelectedAreCharged()) {
-            alert('You found them :) !');
+            alert('CONGRATULATIONS! You found them! ' + correctAnswerText);
         } else {
-            alert('You did not find them');
+            alert('GAME OVER! Try again. ' + correctAnswerText);
         }
+        location.reload(true);
     });
 
     $('#remove-batteries').on('click touch', function(event) {
