@@ -11,6 +11,16 @@ h2 {
     font-size: 5ex;
 }
 
+.sr-only {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }
+
 .glow {
     color: #fff;
     text-align: center;
