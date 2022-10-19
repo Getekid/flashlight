@@ -15,6 +15,7 @@
       <details class="instructions">
         <summary>Instructions</summary>
         <div>
+          <p>Find the only <strong>2</strong> charged batteries mixed with other 8 empty ones.</p>
           <p>The flashlight will turn ON if at least one of the selected batteries is charged.</p>
           <p>Select a battery by tapping/clicking on it. You can select up to two at a time.</p>
           <p>Use the <img src="media/plus.svg" alt="Try"/> icon to try the selected batteries on the flashlight, or the <img src="media/minus.svg" alt="Remove"/> icon to remove them.</p>
@@ -36,7 +37,7 @@
         <div class="buttons">
           <button id="try-batteries" class="flashlight-button" disabled>
             <img src="media/plus.svg" aria-hidden="true" focusable="false">
-            <p aria-live="polite">Try _ , _</p>
+            <p aria-live="polite">Put _ , _</p>
           </button>
           <button id="remove-batteries" class="flashlight-button">
             <img src="media/minus.svg" aria-hidden="true" focusable="false">
@@ -96,7 +97,8 @@
             </button>
           </li>
         </ol>
-        <h2>FOUND THEM?</h2>
+        <h2>Found both?</h2>
+        <p>The <strong>2</strong> charged batteries are</p>
         <button id="submit-batteries" disabled>
           <p>Final answer</p>
         </button>
