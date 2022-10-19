@@ -16,3 +16,24 @@ h2 {
     text-align: center;
     text-shadow: 0 0 6px #fff;
 }
+
+details.instructions summary {
+    font-size: 3ex;
+}
+
+details.instructions div {
+	border: 1px solid white;
+	border-radius: 10px;
+	padding: 0 20px;
+    margin: 0 10px;
+}
+
+details.instructions p, details.instructions li {
+    font-size: 1em;
+    text-align: left;
+}
+
+details.instructions img {
+    width: 15px;
+    filter: invert(1);
+}

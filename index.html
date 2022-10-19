@@ -12,7 +12,15 @@
   <body>
     <header>
       <h1 class="glow">Flashlight</h1>
-      <!-- <p class="glow">Find the charged batteries</p> -->
+      <details class="instructions">
+        <summary>Instructions</summary>
+        <div>
+          <p>The flashlight will turn ON if at least one of the selected batteries is charged.</p>
+          <p>Select a battery by tapping/clicking on it. You can select up to two at a time.</p>
+          <p>Use the <img src="media/plus.svg" alt="Try"/> icon to try the selected batteries on the flashlight, or the <img src="media/minus.svg" alt="Remove"/> icon to remove them.</p>
+          <p>Submit your final answer by tapping/clicking the "Final answer" button with the selected batteries.<br>The game will then restart.</p>
+        </div>
+      </details>
     </header>
     <main>
       <section class="game">
@@ -93,18 +101,6 @@
           <p>Final answer</p>
         </button>
       </section>
-      <aside>
-        <h2>Instructions</h2>
-        <p>The flashlight will work if at least one of the batteries is charged.</p>
-        <p>To select a battery:</p>
-        <ul>
-          <li>Tap on it on your phone</li>
-          <li>Left mouse click</li>
-          <li>Select using the Left/Right arrow keys and confirm with Enter</li>
-        </ul>
-        <p>You can use the last two batteries selected.
-          Remove them if you want to try another pair.</p>
-      </aside>
     </main>
     <footer>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
