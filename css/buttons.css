@@ -1,0 +1,30 @@
+button {
+    background-color: transparent;
+    border: none;
+}
+
+button.flashlight-button {
+    width: 48%;
+    line-height: 5px;
+    filter: invert(1);
+}
+
+button.flashlight-button:disabled {
+    filter: invert(0.505);
+}
+
+button.flashlight-button img {
+    width: 50px;
+}
+
+#submit-batteries {
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 0 20px;
+}
+
+#submit-batteries:disabled {
+    color: gray;
+    border-color: gray;
+}

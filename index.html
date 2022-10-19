@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <title>Flashlight</title>
+    <link rel="stylesheet" href="css/flashlight.css">
+    <link rel="stylesheet" href="css/battery.css">
+    <link rel="stylesheet" href="css/text.css">
+    <link rel="stylesheet" href="css/buttons.css">
+  </head>
+  <body>
+    <header>
+      <h1 class="glow">Flashlight</h1>
+      <details class="instructions">
+        <summary>Instructions</summary>
+        <div>
+          <p>The flashlight will turn ON if at least one of the selected batteries is charged.</p>
+          <p>Select a battery by tapping/clicking on it. You can select up to two at a time.</p>
+          <p>Use the <img src="media/plus.svg" alt="Try"/> icon to try the selected batteries on the flashlight, or the <img src="media/minus.svg" alt="Remove"/> icon to remove them.</p>
+          <p>Submit your final answer by tapping/clicking the "Final answer" button with the selected batteries.<br>The game will then restart.</p>
+        </div>
+      </details>
+    </header>
+    <main>
+      <section class="game">
+        <div class="flashlight">
+          <div class="flashlight-icon">
+            <img src="media/flashlight.svg" alt="Flashlight icon">
+          </div>
+          <div class="flashlight-status" aria-label="Flaslight is OFF">
+            <p class="flashlight-status-off">OFF</p>
+            <p class="flashlight-status-on">ON</p>
+          </div>
+        </div>
+        <div class="buttons">
+          <button id="try-batteries" class="flashlight-button" disabled>
+            <img src="media/plus.svg" aria-hidden="true" focusable="false">
+            <p aria-live="polite">Try _ , _</p>
+          </button>
+          <button id="remove-batteries" class="flashlight-button">
+            <img src="media/minus.svg" aria-hidden="true" focusable="false">
+            <p>Remove</p>
+          </button>
+        </div>
+        <!-- TODO: Use a template engine for the battery markup. -->
+        <ol class="batteries">
+          <li>
+            <button class="battery" id="battery-1">
+              <img src="media/battery.svg" alt="Battery 1">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-2">
+              <img src="media/battery.svg" alt="Battery 2">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-3">
+              <img src="media/battery.svg" alt="Battery 3">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-4">
+              <img src="media/battery.svg" alt="Battery 4">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-5">
+              <img src="media/battery.svg" alt="Battery 5">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-6">
+              <img src="media/battery.svg" alt="Battery 6">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-7">
+              <img src="media/battery.svg" alt="Battery 7">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-8">
+              <img src="media/battery.svg" alt="Battery 8">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-9">
+              <img src="media/battery.svg" alt="Battery 9">
+            </button>
+          </li>
+          <li>
+            <button class="battery" id="battery-10">
+              <img src="media/battery.svg" alt="Battery 10">
+            </button>
+          </li>
+        </ol>
+        <h2>FOUND THEM?</h2>
+        <button id="submit-batteries" disabled>
+          <p>Final answer</p>
+        </button>
+      </section>
+    </main>
+    <footer>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="js/batteries.js"></script>
+      <script src="js/game.js"></script>
+    </footer>
+  </body>
+</html>
