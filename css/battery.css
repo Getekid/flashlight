@@ -1,11 +1,13 @@
 ol.batteries {
-    margin: 0;
+    margin-top: 40px;
+    margin-bottom: 0;
     padding: 0;
     list-style: none; /* hide original list numbering */
     counter-reset: ordered-list; /* initialize CSS counter */
 }
 
-ol.batteries li::before {
+ol.batteries li::after {
+    color: #f0d295;
     display: block; /* display numbering as block to force content down */
     margin-bottom: 4px;
     counter-increment: ordered-list; /* increment CSS counter for every <li> in the list */
@@ -15,22 +17,21 @@ ol.batteries li::before {
 
 ol.batteries li {
     display: inline-block;
-    width: 22%;
+    width: 17%;
     padding: 0.5ex;
-}
-
-@media only screen and (min-width: 768px) {
-    ol.batteries li {
-        width: 16%;
-    }
 }
 
 .battery {
     width: 100%;
     padding: 0;
-    background-color: white;
+    filter: invert(0.55) sepia(1) saturate(3);
 }
 
-.battery.selected {
-    background-color: grey;
+.battery img {
+    transition: transform 0.3s;
+}
+
+.battery.selected img {
+    filter: drop-shadow(0 0 10px #f0d295);
+    transform: scale(1.1) translateY(-10px);
 }

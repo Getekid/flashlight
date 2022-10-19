@@ -1,9 +1,12 @@
-button.flashlight-button {
-    width: 48%;
+button {
     background-color: transparent;
     border: none;
-    filter: invert(1);
+}
+
+button.flashlight-button {
+    width: 48%;
     line-height: 5px;
+    filter: invert(1);
 }
 
 button.flashlight-button:disabled {
