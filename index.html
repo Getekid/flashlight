@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/flashlight.css">
     <link rel="stylesheet" href="css/battery.css">
     <link rel="stylesheet" href="css/text.css">
+    <link rel="stylesheet" href="css/buttons.css">
   </head>
   <body>
     <header>
@@ -27,12 +28,16 @@
             <p class="flashlight-status-on">ON</p>
           </div>
         </div>
-        <button id="try-batteries" disabled>
-          <p>Select two batteries</p>
-        </button>
-        <button id="remove-batteries">
-          <p>Remove batteries</p>
-        </button>
+        <div class="buttons">
+          <button id="try-batteries" class="flashlight-button" disabled>
+            <img src="media/plus.svg" aria-hidden="true" focusable="false">
+            <p aria-live="polite">Try _ , _</p>
+          </button>
+          <button id="remove-batteries" class="flashlight-button">
+            <img src="media/minus.svg" aria-hidden="true" focusable="false">
+            <p>Remove</p>
+          </button>
+        </div>
         <!-- TODO: Use a template engine for the battery markup. -->
         <ol class="batteries">
           <li>

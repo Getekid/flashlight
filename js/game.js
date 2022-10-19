@@ -39,11 +39,11 @@ $(document).ready(function () {
                 updateBatteryButtons(true, tryBatteriesDefaultText, submitBatteriesDefaultText);
                 break;
             case 1:
-                updateBatteryButtons(true, tryBatteriesDefaultText, submitBatteriesDefaultText + ' ' + batteries.getSelected()[0]);
+                updateBatteryButtons(true, 'Try ' + batteries.getSelected()[0] + ' , _', submitBatteriesDefaultText + ' ' + batteries.getSelected()[0]);
                 turnFlashlightOff();
                 break;
             case 2:
-                updateBatteryButtons(false, 'Try batteries ' + batteries.getSelected().join(','), submitBatteriesDefaultText + ' ' + batteries.getSelected().join(','));
+                updateBatteryButtons(false, 'Try ' + batteries.getSelected().join(' , '), submitBatteriesDefaultText + ' ' + batteries.getSelected().join(','));
                 break;
         }
     });

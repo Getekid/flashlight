@@ -1,0 +1,15 @@
+button.flashlight-button {
+    width: 48%;
+    background-color: transparent;
+    border: none;
+    filter: invert(1);
+    line-height: 5px;
+}
+
+button.flashlight-button:disabled {
+    filter: invert(0.5);
+}
+
+button.flashlight-button img {
+    width: 75px;
+}
