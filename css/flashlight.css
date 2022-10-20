@@ -5,7 +5,7 @@ body {
     background-color: black;
 }
 
-.game {
+.game, .result {
     text-align: center;
 }
 
