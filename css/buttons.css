@@ -28,3 +28,33 @@ button.flashlight-button img {
     color: gray;
     border-color: gray;
 }
+
+/* Result buttons. */
+.result .result-correct, .result .result-wrong {
+    display: none;
+}
+
+.result .result-correct h3 {
+    color: #23ff23;
+}
+
+.result .result-wrong h3 {
+    color: #dd2e44;
+}
+
+.result button.reset-game {
+    color: white;
+    font-size: 3ex;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 25px;
+    margin-top: 20px;
+}
+
+.result button.reset-game:before {
+    content: url(../media/reset.svg);
+    width: 20px;
+    float: left;
+    margin-right: 15px;
+    margin-top: 4px;
+}
