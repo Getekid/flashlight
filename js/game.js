@@ -39,11 +39,12 @@ $(document).ready(function () {
                 updateBatteryButtons(true, tryBatteriesDefaultText, submitBatteriesDefaultText);
                 break;
             case 1:
-                updateBatteryButtons(true, 'Try ' + batteries.getSelected()[0] + ', _', submitBatteriesDefaultText + ': ' + batteries.getSelected()[0]);
+                updateBatteryButtons(true, tryBatteriesDefaultText.replace('_', batteries.getSelected()[0]), submitBatteriesDefaultText + ': ' + batteries.getSelected()[0]);
                 turnFlashlightOff();
                 break;
             case 2:
-                updateBatteryButtons(false, 'Try ' + batteries.getSelected().join(', '), submitBatteriesDefaultText + ': ' + batteries.getSelected().join(', '));
+                let tryBatteriesText = tryBatteriesDefaultText.replace('_', batteries.getSelected()[0]).replace('_', batteries.getSelected()[1]);
+                updateBatteryButtons(false, tryBatteriesText, submitBatteriesDefaultText + ': ' + batteries.getSelected().join(' , '));
                 break;
         }
     });
@@ -60,13 +61,19 @@ $(document).ready(function () {
     });
 
     submitBatteriesButton.on('click touch', function(event) {
-        let correctAnswerText = 'Correct answer: ' + batteries.getCharged().join(', ');
+        // Disable all buttons except the ones to reset the game.
+        $('button:not(".reset-game")').attr('disabled', true);
+
+        // Show the correct/wrong element and scroll into view.
         if (batteries.checkSelectedAreCharged()) {
-            alert('CONGRATULATIONS! You found them! ' + correctAnswerText);
+            $('.result-correct').fadeIn(100);
         } else {
-            alert('GAME OVER! Try again. ' + correctAnswerText);
+            $('.result-wrong').fadeIn(100);
+            $('.result-wrong span').text(batteries.getCharged().sort().join(' , '))
         }
-        location.reload(true);
+        $('html, body').animate({
+            scrollTop: $('.result').offset().top
+        }, 1000);
     });
 
     $('#remove-batteries').on('click touch', function(event) {
@@ -76,5 +83,9 @@ $(document).ready(function () {
         flashlightStatus.fadeOut(100, () => turnFlashlightOff());
         flashlightStatus.fadeIn(100);
         updateBatteryButtons(true, tryBatteriesDefaultText, submitBatteriesDefaultText);
+    });
+
+    $('.reset-game').on('click touch', function(event) {
+        location.reload(true);
     });
 });
